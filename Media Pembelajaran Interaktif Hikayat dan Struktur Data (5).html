@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Interaktif: Hikayat & Struktur Data</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .pixar-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+            border-radius: 24px;
+            box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.1), 0 8px 10px -6px rgba(16, 185, 129, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .pixar-card:hover { transform: translateY(-4px); box-shadow: 0 20px 35px -5px rgba(16, 185, 129, 0.2); }
+        .pixar-btn {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            border-radius: 16px;
+            box-shadow: 0 6px 0 #065f46;
+            transition: all 0.1s ease;
+        }
+        .pixar-btn:active { transform: translateY(4px); box-shadow: 0 2px 0 #065f46; }
+        .pixar-tab { transition: all 0.3s ease; }
+        .pixar-tab.active { background-color: #059669; color: white; box-shadow: 0 4px 12px rgba(5, 150, 105, 0.4); }
+    </style>
+</head>
+<body class="bg-emerald-50 min-text-slate-800 pb-16">
+
+    <!-- Header / Profil Guru -->
+    <header class="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white py-6 px-4 shadow-xl rounded-b-3xl mb-8">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-4">
+                <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg transform rotate-3">
+                    <span class="text-3xl">📚</span>
+                </div>
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">Hikayat & Struktur Data 3D</h1>
+                    <p class="text-emerald-100 text-sm md:text-base font-medium">Bahasa Indonesia Kelas 10 SMA • Fase E</p>
+                </div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20 text-center md:text-right">
+                <p class="text-xs uppercase tracking-wider text-emerald-200 font-bold">Pengembang Media</p>
+                <p class="font-bold text-sm">Siti Salwa Muthohiroh, S.Pd.</p>
+                <p class="text-xs text-emerald-100 font-medium">SMAS Daar El Qolam 2</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigasi Menu Utama -->
+    <nav class="max-w-6xl mx-auto px-4 mb-8">
+        <div class="flex flex-wrap justify-center gap-2 bg-white p-2 rounded-2xl shadow-md">
+            <button onclick="switchTab('panduan')" class="pixar-tab active px-5 py-2.5 rounded-xl font-bold text-sm md:text-base">📖 Panduan</button>
+            <button onclick="switchTab('tujuan')" class="pixar-tab px-5 py-2.5 rounded-xl font-bold text-sm md:text-base text-slate-600 hover:bg-emerald-50">🎯 Tujuan</button>
+            <button onclick="switchTab('materi')" class="pixar-tab px-5 py-2.5 rounded-xl font-bold text-sm md:text-base text-slate-600 hover:bg-emerald-50">💡 Materi & Simulasi</button>
+            <button onclick="switchTab('games')" class="pixar-tab px-5 py-2.5 rounded-xl font-bold text-sm md:text-base text-slate-600 hover:bg-emerald-50">🎮 10 Games</button>
+            <button onclick="switchTab('quiz')" class="pixar-tab px-5 py-2.5 rounded-xl font-bold text-sm md:text-base text-slate-600 hover:bg-emerald-50">📝 Quiz Essai</button>
+        </div>
+    </nav>
+
+    <!-- Konten Utama -->
+    <main class="max-w-6xl mx-auto px-4">
+
+        <!-- 1. PANDUAN -->
+        <section id="panduan" class="tab-content pixar-card p-6 md:p-8">
+            <div class="flex items-center space-x-3 mb-6">
+                <span class="text-4xl">📖</span>
+                <div>
+                    <h2 class="text-2xl font-extrabold text-emerald-800">Panduan Penggunaan Media</h2>
+                    <p class="text-slate-600 text-sm">Petunjuk belajar interaktif khusus untuk murid usia 15-16 tahun (Kelas 10 SMA)</p>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-emerald-100 shadow-sm">
+                    <h3 class="font-bold text-emerald-700 text-lg mb-3 flex items-center">✨ Langkah Belajar Seru</h3>
+                    <ul class="space-y-2 text-slate-700 text-sm">
+                        <li class="flex items-start"><span class="text-emerald-500 font-bold mr-2">1.</span> Pahami <b>Tujuan Pembelajaran</b> agar tahu target kompetensi Fase E.</li>
+                        <li class="flex items-start"><span class="text-emerald-500 font-bold mr-2">2.</span> Jelajahi menu <b>Materi & Simulasi</b> untuk mengupas Teks Hikayat, Nilai-nilai, dan Struktur Data (Linear/Binary Search, Sorting, Stack/Queue).</li>
+                        <li class="flex items-start"><span class="text-emerald-500 font-bold mr-2">3.</span> Tantang dirimu menyelesaikan <b>10 Games interaktif</b> bertema 3D Pixar.</li>
+                        <li class="flex items-start"><span class="text-emerald-500 font-bold mr-2">4.</span> Kerjakan <b>5 Soal Essai</b> di akhir untuk mengukur pemahaman mendalam.</li>
+                    </ul>
+                </div>
+                <div class="bg-gradient-to-br from-emerald-600 to-teal-700 text-white p-6 rounded-2xl shadow-md flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">🎵 Efek Suara & Interaksi</h3>
+                        <p class="text-sm text-emerald-100 mb-4">Media ini dilengkapi suara interaktif web audio API setiap kali kamu menekan tombol atau berhasil menjawab game!</p>
+                    </div>
+                    <button onclick="playSound('click')" class="bg-white text-emerald-800 font-bold py-2.5 px-4 rounded-xl text-sm shadow hover:bg-emerald-50 transition">Uji Coba Suara Interaktif 🔊</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. TUJUAN PEMBELAJARAN -->
+        <section id="tujuan" class="tab-content pixar-card p-6 md:p-8 hidden">
+            <div class="flex items-center space-x-3 mb-6">
+                <span class="text-4xl">🎯</span>
+                <div>
+                    <h2 class="text-2xl font-extrabold text-emerald-800">Tujuan Pembelajaran</h2>
+                    <p class="text-slate-600 text-sm">Capaian Pembelajaran Bahasa Indonesia & Integrasi Komputasional Fase E</p>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <div class="bg-white p-5 rounded-2xl border-l-8 border-emerald-500 shadow-sm">
+                    <h3 class="font-bold text-slate-800 text-lg">1. Memahami dan Menerapkan Teks Hikayat</h3>
+                    <p class="text-slate-600 text-sm mt-1">Murid dapat mengidentifikasi ciri-ciri, isi, kata arkais, struktur hikayat, serta mampu merekonstruksi cerita rakyat klasik ke dalam bahasa modern dengan kreatif.</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border-l-8 border-teal-500 shadow-sm">
+                    <h3 class="font-bold text-slate-800 text-lg">2. Menganalisis Nilai-Nilai Kehidupan dalam Hikayat</h3>
+                    <p class="text-slate-600 text-sm mt-1">Murid mampu menemukan nilai moral, sosial, agama/religius, edukasi, dan budaya serta mengaitkannya dengan kehidupan nyata sehari-hari.</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border-l-8 border-emerald-600 shadow-sm">
+                    <h3 class="font-bold text-slate-800 text-lg">3. Menguasai Struktur Data & Algoritma Logis</h3>
+                    <p class="text-slate-600 text-sm mt-1">Murid dapat memahami keterkaitan logika naratif dengan pemodelan struktur data komputer (Linear/Binary Search, Bubble/Insertion/Selection Sort, serta Stack & Queue).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. MATERI & SIMULASI -->
+        <section id="materi" class="tab-content pixar-card p-6 md:p-8 hidden">
+            <div class="flex items-center space-x-3 mb-6">
+                <span class="text-4xl">💡</span>
+                <div>
+                    <h2 class="text-2xl font-extrabold text-emerald-800">Materi & Simulasi Interaktif</h2>
+                    <p class="text-slate-600 text-sm">Eksplorasi konsep sastra Melayu klasik terintegrasi komputasi</p>
+                </div>
+            </div>
+
+            <!-- Sub-Materi 1 -->
+            <div class="bg-white p-6 rounded-2xl border border-emerald-100 shadow-sm mb-6">
+                <h3 class="text-xl font-extrabold text-emerald-700 mb-2">1. Teks Hikayat : Linear Search & Binary Search</h3>
+                <p class="text-slate-700 text-sm mb-4">Hikayat adalah karya sastra Melayu klasik berbentuk prosa yang sarat unsur rekaan, istana sentris, dan kemustahilan. Dalam mencari informasi atau kata arkais tertentu di dalam naskah hikayat yang panjang, kita dapat menggunakan analogi algoritma pencarian komputer:</p>
+                
+                <div class="grid md:grid-cols-2 gap-4 bg-emerald-50 p-4 rounded-xl">
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <h4 class="font-bold text-emerald-800">🔍 Linear Search (Pencarian Beruntun)</h4>
+                        <p class="text-xs text-slate-600 mt-1">Memeriksa setiap kata/kalimat satu persatu dari awal hingga akhir naskah hikayat sampai kata arkais ditemukan. Cocok untuk teks pendek.</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <h4 class="font-bold text-emerald-800">⚡ Binary Search (Pencarian Biner)</h4>
+                        <p class="text-xs text-slate-600 mt-1">Digunakan pada daftar kata arkais yang sudah diurutkan abjad. Pencarian dimulai dari tengah kamus glosarium, mempercepat penemuan arti kata secara efisien.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sub-Materi 2 -->
+            <div class="bg-white p-6 rounded-2xl border border-emerald-100 shadow-sm mb-6">
+                <h3 class="text-xl font-extrabold text-emerald-700 mb-2">2. Nilai-Nilai Hikayat : Bubble Sort, Insertion Sort, Selection Sort</h3>
+                <p class="text-slate-700 text-sm mb-4">Hikayat mengandung berbagai nilai kehidupan (Moral, Sosial, Budaya, Edukasi, Religius). Untuk mengelompokkan tingkat dominasi nilai atau menyusun urutan prioritas nilai dari yang terkuat hingga terendah, kita menggunakan algoritma pengurutan (Sorting):</p>
+                
+                <div class="grid md:grid-cols-3 gap-4 bg-emerald-50 p-4 rounded-xl text-xs">
+                    <div class="bg-white p-3 rounded-lg shadow-sm">
+                        <span class="font-bold text-emerald-700 block mb-1">Bubble Sort</span>
+                        Membandingkan nilai moral dan sosial secara berdampingan dan menukar posisinya berulang kali hingga urutan nilai paling dominan berada di puncak.
+                    </div>
+                    <div class="bg-white p-3 rounded-lg shadow-sm">
+                        <span class="font-bold text-emerald-700 block mb-1">Insertion Sort</span>
+                        Menyisipkan setiap nilai baru ke dalam daftar nilai hikayat yang sudah terurut sebelumnya satu persatu secara cermat.
+                    </div>
+                    <div class="bg-white p-3 rounded-lg shadow-sm">
+                        <span class="font-bold text-emerald-700 block mb-1">Selection Sort</span>
+                        Mencari nilai kehidupan terkecil/terbesar dari keseluruhan kutipan, lalu menempatkannya pada posisi urutan analisis yang tepat.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sub-Materi 3 -->
+            <div class="bg-white p-6 rounded-2xl border border-emerald-100 shadow-sm">
+                <h3 class="text-xl font-extrabold text-emerald-700 mb-2">3. Struktur Data : Stack & Queue dalam Alur Cerita</h3>
+                <p class="text-slate-700 text-sm mb-4">Struktur hikayat terdiri dari Abstrak, Orientasi, Komplikasi, Resolusi, dan Koda. Alur peristiwa dan antrean karakter dalam istana dapat dimodelkan dengan struktur data:</p>
+                
+                <div class="grid md:grid-cols-2 gap-4 bg-emerald-50 p-4 rounded-xl text-xs">
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <h4 class="font-bold text-emerald-800 text-sm mb-1">📚 Stack (Tumpukan - LIFO: Last In, First Out)</h4>
+                        <p class="text-slate-600">Seperti tumpukan buku hikayat di atas meja. Buku yang terakhir ditaruh di atas adalah buku yang pertama kali diambil untuk dibaca.</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <h4 class="font-bold text-emerald-800 text-sm mb-1">👥 Queue (Antrean - FIFO: First In, First Out)</h4>
+                        <p class="text-slate-600">Seperti antrean rakyat jelata yang ingin menghadap Baginda Raja di balai istana. Siapa yang datang pertama, dia yang dilayani terlebih dahulu.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 10 GAMES INTERAKTIF -->
+        <section id="games" class="tab-content pixar-card p-6 md:p-8 hidden">
+            <div class="flex items-center justify-between mb-6 flex-wrap gap-4">
+                <div class="flex items-center space-x-3">
+                    <span class="text-4xl">🎮</span>
+                    <div>
+                        <h2 class="text-2xl font-extrabold text-emerald-800">10 Games Interaktif 3D Pixar</h2>
+                        <p class="text-slate-600 text-sm">Uji ketangkasan dan pengetahuan hikayat serta struktur data!</p>
+                    </div>
+                </div>
+                <div class="bg-emerald-100 px-4 py-2 rounded-xl text-emerald-800 font-extrabold text-sm">
+                    Skor Game: <span id="total-score">0</span> / 100
+                </div>
+            </div>
+
+            <div id="game-container" class="space-y-6">
+                <!-- Game 1 -->
+                <div class="bg-white p-5 rounded-2xl border border-emerald-100 shadow-sm game-card" data-game="1">
+                    <h3 class="font-bold text-emerald-700 text-base mb-2">Game 1: Arti Kata Arkais "Syahdan"</h3>
+                    <p class="text-slate-700 text-sm mb-3">Apa arti kata arkais <b>"Syahdan"</b> yang sering muncul di awal paragraf hikayat?</p>
+                    <div class="grid sm:grid-cols-2 gap-2">
+                        <button onclick="checkGame(1, false)" class="p-2.5 text-xs font-semibold bg-slate-50 hover:bg-emerald-50 border rounded-xl text-left transition">A. Raja yang bijaksana</button>
+                        <button onclick="checkGame(1, true)" class="p-2.5 text-xs font-semibold bg-slate-50 hover:bg-emerald-50 border rounded-xl text-left transition">B. Lalu / bermula (cerita)</button>
+                    </div>
+                    <p class="game-feedback text-xs mt-2 font-bold hidden"></p>
+                </div>
+
+                <!-- Game 2 -->
+                <div class="bg-white p-5 rounded-2xl border border-emerald-100 shadow-sm game-card" data-game="2">
+                    <h3 class="font-bold text-emerald-700 text-base mb-2">Game 2: Ciri Khas Latar Hikayat</h3>
+                    <p class="text-slate-700 text-sm mb-3">Latar tempat utama yang paling mendominasi di dalam sebagian besar cerita hikayat adalah...</p>
+                    <div class="grid sm:grid-cols-2 gap-2">
+                        <button onclick="checkGame(2, true)" class="p-2.5 text-xs font-semibold bg-slate-50 hover:bg-emerald-50 border rounded-xl text-left transition">A. Istana / Kerajaan (Istana Sentris)</button>
+                        <button onclick="checkGame(2, false)" class="p-2.5 text-xs font-semibold bg-slate-50 hover:bg-emerald-50 border rounded-xl text-left transition">B. Gedung pencakar langit modern</button>
+                    </div>
+                    <p class="game-feedback text-xs mt-2 font-bold hidden"></p>
+                </div>
+
+                <!-- Game 3 -->
+                <div class="bg-white p-5 rounded-2xl border border-emerald-100 shadow-sm game-card" data-game="3">
+                    <h3 class="font-bold text-emerald-700 text-base mb-2">Game 3: Identifikasi Nilai Moral</h3>
+                    <p class="text-slate-700 text-sm mb-3">Seorang istri merawat suaminya yang sakit dengan penuh kesetiaan. Nilai apakah yang terkandung?</p>
+                    <div class="grid sm:grid-cols-2 gap-2">
+                        <button onclick="checkGame(3, true)" class="p-2.5 text-xs font-semibold bg-slate-50 hover:bg-emerald-50 border rounded-xl text-left transition">A. Nilai Moral & Budi Pekerti</button>
+                        <button onclick="checkGame(3, false)" class="p-2.5 text-xs font-semibold bg-slate-50 hover:bg-emerald-50 border rounded-xl text-left transition">B. Nilai Politik Pemerintahan</button>
+                    </div>
+                    <p class="game-feedback text-xs mt-2 font-bold hidden"></p>
+                </div>
+
+                <!-- Game 4 -->
+                <div class="bg-white p-5 rounded-2xl border border-emerald-100 shadow-sm game-card" data-game="4">
+                    <h3 class="font-bold text-emerald-700 text-base mb-2">Game 4: Struktur Data - Antrean Rakyat (Queue)</h3>
+                    <p class="text-slate-700 text-sm mb-3">Prinsip kerja struktur data <b>Queue</b> (Antrean) dalam melayani rakyat menghadap raja adalah...</p>
+                    <div class="grid sm:grid-cols-2 gap-2">
+                        <button onclick="checkGame(4, true)" class="p-2.5 text-xs font-semibold bg-slate-50 hover:bg-emerald-50 border rounded-xl text-left transition">A. First In, First Out (FIFO)</button>
+                        <button onclick="checkGame(4, false)" class="p-2.5 text-xs font-semibold bg-slate-50 hover:bg-emerald-50 border rounded-xl text-left transition">B. Last In, First Out (LIFO)</button>
+                    </div>
+                    <p class="game-feedback text-xs mt-2 font-bold hidden"></p>
+                </div>
+
+                <!-- Game 5 -->
+                <div class="bg-white p-5 rounded-2xl border border-emerald-100 shadow-sm game-card" data-game="5">
+                    <h3 class="font-bold text-emerald-700 text-base mb-2">Game 5: Algoritma Pencarian Kata Arkais</h3>
+                    <p class="text-slate-700 text-sm mb-3">Algoritma pencarian yang mengecek setiap kata dalam kamus glosarium satu persatu dari atas ke bawah disebut...</p>
+                    <div class="grid sm:grid-cols-2 gap-2">
+                        <button onclick="checkGame(5, true)" class="p-2.5 text-xs font-semibold bg-slate-50 hover:bg-emerald-50 border rounded-xl text-left transition">A. Linear Search</button>
+                        <button onclick="checkGame(5, false)" class="p-2.5 text-xs font-semibold bg-slate-50 hover:bg-emerald-50 border rounded-xl text-left transition">B. Binary Search</button>
+                    </div>
+                    <p class="game-feedback text-xs mt-2 font-bold hidden"></p>
+                </div>
+
+                <!-- Game 6 -->
+                <div class="bg-white p-5 rounded-2xl border border-emerald-100 shadow-sm game-card" data-game="6">
+                    <h3 class="font-bold text-emerald-700 text-base mb-2">Game 6: Struktur Teks Hikayat</h3>
+                    <p class="text-slate-700 text-sm mb-3">Bagian awal hikayat yang berisi pengenalan latar tempat dan tokoh (setting) dinamakan...</p>
+                    <div class="grid sm:grid-cols-2 gap-2">
+                        <button onclick="checkGame(6, true)" class="p-2.5 text-xs font-semibold bg-slate-50 hover:bg-emerald-50 border rounded-xl text-left transition">A. Orientasi</button>
+                        <button onclick="checkGame(6, false)" class="p-2.5 text-xs font-semibold bg-slate-50 hover:bg-emerald-50 border rounded-xl text-left transition">B. Resolusi</button>
+                    </div>
+                    <p class="game-feedback text-xs mt-2 font-bold hidden"></p>
+                </div>
+
+                <!-- Game 7 -->
+                <div class="bg-white p-5 rounded-2xl border border-emerald-100 shadow-sm game-card" data-game="7">
+                    <h3 class="font-bold text-emerald-700 text-base mb-2">Game 7: Algoritma Pengurutan Nilai (Bubble Sort)</h3>
+                    <p class="text-slate-700 text-sm mb-3">Bagaimana cara kerja dasar dari algoritma <b>Bubble Sort</b> pada data nilai?</p>
+                    <div class="grid sm:grid-cols-2 gap-2">
+                        <button onclick="checkGame(7, true)" class="p-2.5 text-xs font-semibold bg-slate-50 hover:bg-emerald-50 border rounded-xl text-left transition">A. Membandingkan elemen berdampingan & menukar</button>
+                        <button onclick="checkGame(7, false)" class="p-2.5 text-xs font-semibold bg-slate-50 hover:bg-emerald-50 border rounded-xl text-left transition">B. Memotong data menjadi dua bagian sama besar</button>
+                    </div>
+                    <p class="game-feedback text-xs mt-2 font-bold hidden"></p>
+                </div>
+
+                <!-- Game 8 -->
+                <div class="bg-white p-5 rounded-2xl border border-emerald-100 shadow-sm game-card" data-game="8">
+                    <h3 class="font-bold text-emerald-700 text-base mb-2">Game 8: Sifat Penulisan Hikayat</h3>
+                    <p class="text-slate-700 text-sm mb-3">Siapakah nama pengarang asli dari sebagian besar hikayat klasik Melayu?</p>
+                    <div class="grid sm:grid-cols-2 gap-2">
+                        <button onclick="checkGame(8, true)" class="p-2.5 text-xs font-semibold bg-slate-50 hover:bg-emerald-50 border rounded-xl text-left transition">A. Anonim (Tidak diketahui)</button>
+                        <button onclick="checkGame(8, false)" class="p-2.5 text-xs font-semibold bg-slate-50 hover:bg-emerald-50 border rounded-xl text-left transition">B. Ditulis oleh pujangga terkenal abad 20</button>
+                    </div>
+                    <p class="game-feedback text-xs mt-2 font-bold hidden"></p>
+                </div>
+
+                <!-- Game 9 -->
+                <div class="bg-white p-5 rounded-2xl border border-emerald-100 shadow-sm game-card" data-game="9">
+                    <h3 class="font-bold text-emerald-700 text-base mb-2">Game 9: Struktur Data Stack (Tumpukan Buku)</h3>
+                    <p class="text-slate-700 text-sm mb-3">Prinsip struktur data <b>Stack</b> pada tumpukan lembar hikayat adalah...</p>
+                    <div class="grid sm:grid-cols-2 gap-2">
+                        <button onclick="checkGame(9, true)" class="p-2.5 text-xs font-semibold bg-slate-50 hover:bg-emerald-50 border rounded-xl text-left transition">A. Last In, First Out (LIFO)</button>
+                        <button onclick="checkGame(9, false)" class="p-2.5 text-xs font-semibold bg-slate-50 hover:bg-emerald-50 border rounded-xl text-left transition">B. First In, First Out (FIFO)</button>
+                    </div>
+                    <p class="game-feedback text-xs mt-2 font-bold hidden"></p>
+                </div>
+
+                <!-- Game 10 -->
+                <div class="bg-white p-5 rounded-2xl border border-emerald-100 shadow-sm game-card" data-game="10">
+                    <h3 class="font-bold text-emerald-700 text-base mb-2">Game 10: Akhir Cerita Hikayat</h3>
+                    <p class="text-slate-700 text-sm mb-3">Bagaimana akhir cerita (koda/resolusi) dari kebanyakan hikayat tradisional?</p>
+                    <div class="grid sm:grid-cols-2 gap-2">
+                        <button onclick="checkGame(10, true)" class="p-2.5 text-xs font-semibold bg-slate-50 hover:bg-emerald-50 border rounded-xl text-left transition">A. Selalu berakhir bahagia (Happy Ending)</button>
+                        <button onclick="checkGame(10, false)" class="p-2.5 text-xs font-semibold bg-slate-50 hover:bg-emerald-50 border rounded-xl text-left transition">B. Menggantung tanpa penyelesaian</button>
+                    </div>
+                    <p class="game-feedback text-xs mt-2 font-bold hidden"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. QUIZ ESSAI (5 SOAL) -->
+        <section id="quiz" class="tab-content pixar-card p-6 md:p-8 hidden">
+            <div class="flex items-center space-x-3 mb-6">
+                <span class="text-4xl">📝</span>
+                <div>
+                    <h2 class="text-2xl font-extrabold text-emerald-800">Quiz Evaluasi (5 Soal Essai)</h2>
+                    <p class="text-slate-600 text-sm">Jawablah pertanyaan berikut dengan uraian yang jelas dan benar</p>
+                </div>
+            </div>
+
+            <form id="essay-form" class="space-y-6" onsubmit="submitEssay(event)">
+                <div class="bg-white p-5 rounded-2xl border border-emerald-100 shadow-sm">
+                    <label class="block font-bold text-slate-800 text-sm mb-2">1. Jelaskan apa yang dimaksud dengan Hikayat dan sebutkan 3 ciri utama yang membedakannya dengan cerpen modern!</label>
+                    <textarea rows="3" required class="w-full p-3 border rounded-xl text-sm focus:ring-2 focus:ring-emerald-500 outline-none" placeholder="Tuliskan jawabanmu di sini..."></textarea>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-emerald-100 shadow-sm">
+                    <label class="block font-bold text-slate-800 text-sm mb-2">2. Apa perbedaan mendasar antara nilai moral dan nilai sosial dalam sebuah kutipan hikayat? Berikan contohnya!</label>
+                    <textarea rows="3" required class="w-full p-3 border rounded-xl text-sm focus:ring-2 focus:ring-emerald-500 outline-none" placeholder="Tuliskan jawabanmu di sini..."></textarea>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-emerald-100 shadow-sm">
+                    <label class="block font-bold text-slate-800 text-sm mb-2">3. Bagaimana cara kerja algoritma <span class="text-emerald-600">Binary Search</span> dalam membantu menemukan arti kata arkais di kamus glosarium?</label>
+                    <textarea rows="3" required class="w-full p-3 border rounded-xl text-sm focus:ring-2 focus:ring-emerald-500 outline-none" placeholder="Tuliskan jawabanmu di sini..."></textarea>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-emerald-100 shadow-sm">
+                    <label class="block font-bold text-slate-800 text-sm mb-2">4. Uraikan perbedaan struktur data <span class="text-emerald-600">Stack (Tumpukan)</span> dan <span class="text-emerald-600">Queue (Antrean)</span> jika dianalogikan dalam kehidupan istana kerajaan!</label>
+                    <textarea rows="3" required class="w-full p-3 border rounded-xl text-sm focus:ring-2 focus:ring-emerald-500 outline-none" placeholder="Tuliskan jawabanmu di sini..."></textarea>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-emerald-100 shadow-sm">
+                    <label class="block font-bold text-slate-800 text-sm mb-2">5. Mengapa saat merekonstruksi hikayat ke dalam bahasa modern kita harus mengubah kata-kata arkais, namun tetap mempertahankan alur aslinya?</label>
+                    <textarea rows="3" required class="w-full p-3 border rounded-xl text-sm focus:ring-2 focus:ring-emerald-500 outline-none" placeholder="Tuliskan jawabanmu di sini..."></textarea>
+                </div>
+
+                <button type="submit" class="pixar-btn w-full py-3.5 text-white font-bold rounded-xl text-base shadow-lg cursor-pointer">Kirim Jawaban Essai 🚀</button>
+            </form>
+            <div id="essay-result" class="mt-6 hidden bg-emerald-100 p-4 rounded-2xl text-emerald-900 font-bold text-center"></div>
+        </section>
+
+    </main>
+
+    <!-- Footer Pengembang -->
+    <footer class="max-w-6xl mx-auto px-4 mt-12 text-center text-xs text-slate-500 font-medium">
+        <p>Media Pembelajaran Interaktif Bahasa Indonesia Kelas 10 Fase E • Dikembangkan oleh <b>Siti Salwa Muthohiroh, S.Pd.</b> (SMAS Daar El Qolam 2)</p>
+    </footer>
+
+    <!-- Script Logika & Sound Effects -->
+    <script>
+        // Web Audio API Sound Generator
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playSound(type) {
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            osc.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+
+            if (type === 'click') {
+                osc.frequency.setValueAtTime(400, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(800, audioCtx.currentTime + 0.1);
+                gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.1);
+            } else if (type === 'correct') {
+                osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5
+                osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.1); // E5
+                osc.frequency.setValueAtTime(783.99, audioCtx.currentTime + 0.2); // G5
+                gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.4);
+            } else if (type === 'incorrect') {
+                osc.frequency.setValueAtTime(300, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(150, audioCtx.currentTime + 0.2);
+                gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.2);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.2);
+            }
+        }
+
+        // Tab Switcher
+        function switchTab(tabId) {
+            playSound('click');
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.pixar-tab').forEach(el => {
+                el.classList.remove('active');
+                el.classList.add('text-slate-600', 'hover:bg-emerald-50');
+            });
+
+            document.getElementById(tabId).classList.remove('hidden');
+            event.currentTarget.classList.add('active');
+            event.currentTarget.classList.remove('text-slate-600', 'hover:bg-emerald-50');
+        }
+
+        // Game Logic & Scoring (10 Games)
+        let gameScores = {};
+
+        function checkGame(gameNum, isCorrect) {
+            playSound(isCorrect ? 'correct' : 'incorrect');
+            const card = document.querySelector(`.game-card[data-game="${gameNum}"]`);
+            const feedback = card.querySelector('.game-feedback');
+            feedback.classList.remove('hidden');
+
+            if (isCorrect) {
+                feedback.className = "game-feedback text-xs mt-2 font-bold text-emerald-600";
+                feedback.innerHTML = "✨ Hebat! Jawabanmu benar!";
+                gameScores[gameNum] = 10;
+            } else {
+                feedback.className = "game-feedback text-xs mt-2 font-bold text-rose-600";
+                feedback.innerHTML = "❌ Kurang tepat, coba cermati materinya lagi ya!";
+                gameScores[gameNum] = 0;
+            }
+
+            // Update Total Score
+            let total = Object.values(gameScores).reduce((a, b) => a + b, 0);
+            document.getElementById('total-score').innerText = total;
+        }
+
+        // Essay Submission
+        function submitEssay(e) {
+            e.preventDefault();
+            playSound('correct');
+            const resultBox = document.getElementById('essay-result');
+            resultBox.classList.remove('hidden');
+            resultBox.innerHTML = "🎉 Luar biasa! Jawaban essay berhasil dikirim dan tersimpan. Guru Siti Salwa Muthohiroh bangga dengan semangat belajarmu!";
+        }
+    </script>
+</body>
+</html>
